@@ -1,6 +1,6 @@
 set -e
 if [ $# != 1 ]; then
-	echo "Usage: set-plugin-build-env.sh tabby_path"
+	echo "Usage: set-plugin-build-env-x64.sh tabby_path"
 	exit 1
 fi
 if [ -z "$YOSYSHQ_LICENSE" ]
