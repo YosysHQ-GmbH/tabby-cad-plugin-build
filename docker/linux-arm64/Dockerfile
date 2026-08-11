@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:26.04
 ENV TZ=Europe/Vienna
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -11,12 +11,12 @@ RUN set -e -x ;\
         gcc-aarch64-linux-gnu \
         g++-aarch64-linux-gnu \
         libc6-dev-arm64-cross; \
-    echo 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy main multiverse restricted universe' > /etc/apt/sources.list ; \
-    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ jammy main multiverse restricted universe' >> /etc/apt/sources.list ; \
-    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ jammy-updates main multiverse restricted universe' >> /etc/apt/sources.list ; \
-    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ jammy-security main multiverse restricted universe' >> /etc/apt/sources.list ; \
-    echo 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates main multiverse restricted universe' >> /etc/apt/sources.list ; \
-    echo 'deb [arch=amd64] http://security.ubuntu.com/ubuntu/ jammy-security main multiverse restricted universe' >> /etc/apt/sources.list ; \
+    echo 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ resolute main multiverse restricted universe' > /etc/apt/sources.list ; \
+    echo 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ resolute-updates main multiverse restricted universe' >> /etc/apt/sources.list ; \
+    echo 'deb [arch=amd64] http://security.ubuntu.com/ubuntu/ resolute-security main multiverse restricted universe' >> /etc/apt/sources.list; \
+    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ resolute main multiverse restricted universe' >> /etc/apt/sources.list ; \
+    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ resolute-updates main multiverse restricted universe' >> /etc/apt/sources.list ; \
+    echo 'deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ resolute-security main multiverse restricted universe' >> /etc/apt/sources.list ; \
     dpkg --add-architecture arm64 ;\
     apt -y update ;\
     apt -y upgrade ;\
